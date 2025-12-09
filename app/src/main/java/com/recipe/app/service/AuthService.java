@@ -44,8 +44,7 @@ public class AuthService {
 
     // Метод для аутентификации пользователя (входа в систему)
     public JwtResponse authenticateUser(LoginRequest loginRequest) {
-        // Находим пользователя по имени
-        User user = userRepository.findByUsername(loginRequest.getUsername()).orElse(null);
+        User user = userRepository.findByEmail(loginRequest.getEmail()).orElse(null);
 
         // Проверяем существование пользователя и совпадение пароля (сравниваем
         // зашифрованные версии)
